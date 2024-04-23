@@ -202,7 +202,64 @@ void excluirUltimoElemento()
 	cout << "Ultimo elemento excluído" << endl;
 }
 
+/*Desafio valendo pontos*/
 
+void inserirElementoOrdem() {
+	NO* novo = (NO*)malloc(sizeof(NO));
+	if (novo == NULL) {
+		return;
+	}
+
+	cout << "Digite o elemento: ";
+	cin >> novo->valor;
+	novo->prox = NULL;
+	novo->ant = NULL;
+	void inserirElementoOrdem() {
+	NO* novo = (NO*)malloc(sizeof(NO));
+	if (novo == NULL) {
+		return;
+	}
+
+	cout << "Digite o elemento: ";
+	cin >> novo->valor;
+	novo->prox = NULL;
+	novo->ant = NULL;
+
+	
+}// Caso especial: lista vazia ou novo valor menor que o primeiro
+	if (primeiro == NULL || novo->valor < primeiro->valor) {
+		novo->prox = primeiro;
+		if (primeiro != NULL) {
+			primeiro->ant = novo;
+		}
+		else {
+			ultimo = novo;
+		}
+		primeiro = novo;
+		return;
+	}
+
+	// Percorre a lista para encontrar o local correto para inserção
+	NO* anterior = primeiro;
+	NO* atual = primeiro->prox;
+	while (atual != NULL && atual->valor < novo->valor) {
+		anterior = atual;
+		atual = atual->prox;
+	}
+
+	// Insere o novo elemento entre anterior e atual
+	novo->prox = atual;
+	novo->ant = anterior;
+	anterior->prox = novo;
+	if (atual != NULL) {
+		atual->ant = novo;
+	}
+	else {
+		ultimo = novo;
+	}
+
+	
+}
 
 
 
